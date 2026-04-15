@@ -86,7 +86,7 @@ function autoDetectFlipper(): string | null {
 
 // ── mjs linter (shared with CLI extension) ─────────────────────────────
 
-const FZ_SDK_DIR = pathResolve(__dirname, "../../skills/flipper/references/fz-sdk");
+const FZ_SDK_DIR = pathResolve(__dirname, "skills/flipper-rpc/references/fz-sdk");
 
 interface MjsIssue {
 	line: number;
