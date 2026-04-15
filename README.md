@@ -16,7 +16,13 @@ A [Pi](https://github.com/badlogic/pi-mono) extension for controlling a **Flippe
 
 ## Install
 
-Add to your Pi `settings.json`:
+Quick start — run Pi with the extension directly:
+
+```bash
+pi -e https://github.com/ivanvza/pi-flipper-rpc
+```
+
+Or add to your Pi `settings.json` for permanent installation:
 
 ```json
 {
@@ -29,14 +35,8 @@ Add to your Pi `settings.json`:
 Or copy the extension manually:
 
 ```bash
-cp -r . ~/.pi/agent/extensions/flipper-rpc
+git clone https://github.com/ivanvza/pi-flipper-rpc.git ~/.pi/agent/extensions/flipper-rpc
 cd ~/.pi/agent/extensions/flipper-rpc && npm install
-```
-
-Copy the skills:
-
-```bash
-cp -r skills/flipper-rpc ~/.pi/agent/skills/flipper-rpc
 ```
 
 ## Prerequisites
