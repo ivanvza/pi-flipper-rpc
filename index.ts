@@ -74,14 +74,25 @@ function renderFlipperScreen(data: Buffer): string {
 // ── Auto-detect ────────────────────────────────────────────────────────
 
 function autoDetectFlipper(): string | null {
+	// Linux: stable symlinks under /dev/serial/by-id.
 	try {
 		const dir = "/dev/serial/by-id";
 		const entries = readdirSync(dir);
 		const flipper = entries.find((e) => e.startsWith("usb-Flipper"));
-		return flipper ? `${dir}/${flipper}` : null;
-	} catch {
-		return null;
+		if (flipper) return `${dir}/${flipper}`;
+	} catch {}
+
+	// macOS: Flipper exposes /dev/cu.usbmodemflip_<Name><N>. Prefer cu.* over tty.*
+	// because cu.* devices don't block on carrier-detect when opening.
+	if (process.platform === "darwin") {
+		try {
+			const entries = readdirSync("/dev");
+			const flipper = entries.find((e) => e.startsWith("cu.usbmodemflip_"));
+			if (flipper) return `/dev/${flipper}`;
+		} catch {}
 	}
+
+	return null;
 }
 
 // ── mjs linter (shared with CLI extension) ─────────────────────────────

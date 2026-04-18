@@ -15,7 +15,7 @@ flipper_rpc action:"disconnect"
 flipper_rpc action:"status"
 ```
 
-Auto-detects the Flipper at `/dev/serial/by-id/usb-Flipper*`. The Flipper must be **unlocked** and connected via USB. User must be in the `dialout` group.
+Auto-detects the Flipper at `/dev/serial/by-id/usb-Flipper*` on Linux and `/dev/cu.usbmodemflip_*` on macOS. The Flipper must be **unlocked** and connected via USB. On Linux the user must be in the `dialout` group; macOS needs no extra setup.
 
 ## Device Info
 

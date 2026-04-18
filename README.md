@@ -44,7 +44,8 @@ cd ~/.pi/agent/extensions/flipper-rpc && npm install
 ## Prerequisites
 
 - Flipper Zero connected via USB
-- User in the `dialout` group: `sudo usermod -aG dialout $USER` (log out/in after)
+- Linux: user in the `dialout` group — `sudo usermod -aG dialout $USER` (log out/in after)
+- macOS: no extra setup; the Flipper appears as `/dev/cu.usbmodemflip_*`
 - Flipper must be unlocked
 
 ## Usage
